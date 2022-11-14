@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/image")
 
-public class imageController {
+public class ImageController {
 int counter;
 List<Image> images;
 
@@ -45,5 +45,10 @@ public ImageController() {
 }
 
 @DeleteMapping("/{id}")
-    public ResponseEntity<>
+    public ResponseEntity<Image> deleteImage(@PathVariable("id") Integer id){
+    Image deleteImage = images.stream().filter( element -> element.getId().equals(id)).findFirst().get();
+    images.remove(deleteImage);
+    System.out.println("Removed image: ${}");
+    return ResponseEntity.ok().body(deleteImage);
+}
 }
