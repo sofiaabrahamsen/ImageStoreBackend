@@ -1,13 +1,9 @@
 package com.example.imagestore.model;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import java.util.Date;
 
-@Getter
-@Setter
-@Data
+import java.util.Date;
+@Data // gets getter, setter, constructor for all fields. and a toString method also.
 public class Image {
     Integer id;
     Long size;
